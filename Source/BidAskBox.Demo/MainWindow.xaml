@@ -1,0 +1,43 @@
+﻿<Window x:Class="BidAskBox.Demo.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:l="clr-namespace:BidAskBox.Library;assembly=BidAskBox.Library"
+        Title="BidAskBoxControl Demo"
+        SizeToContent="WidthAndHeight"
+        WindowStartupLocation="CenterScreen"
+        ResizeMode="NoResize"
+        Closing="Window_Closing">
+    <Window.Resources>
+        <Style TargetType="l:BidAskBoxControl">
+            <Setter Property="Margin"
+                    Value="2" />
+        </Style>
+    </Window.Resources>
+    <Grid Margin="8">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <UniformGrid Rows="2"
+                     Columns="3">
+            <l:BidAskBoxControl x:Name="audUsdBox"
+                             Symbol="{x:Static l:Symbol.AUDUSD}" />
+            <l:BidAskBoxControl x:Name="eurUsdBox"
+                             Symbol="{x:Static l:Symbol.EURUSD}" />
+            <l:BidAskBoxControl x:Name="gbpUsdBox"
+                             Symbol="{x:Static l:Symbol.GBPUSD}" />
+            <l:BidAskBoxControl x:Name="usdCadBox"
+                             Symbol="{x:Static l:Symbol.USDCAD}" />
+            <l:BidAskBoxControl x:Name="usdChfBox"
+                             Symbol="{x:Static l:Symbol.USDCHF}" />
+            <l:BidAskBoxControl x:Name="usdJpyBox"
+                             Symbol="{x:Static l:Symbol.USDJPY}" />
+        </UniformGrid>
+        <StatusBar Grid.Row="1"
+                   Margin="0,4,0,0">
+            <StatusBarItem HorizontalContentAlignment="Center">
+                <TextBlock Text="{Binding Status}" FontWeight="Bold" />
+            </StatusBarItem>
+        </StatusBar>
+    </Grid>
+</Window>
